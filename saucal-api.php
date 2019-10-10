@@ -20,6 +20,7 @@
  */
 
 // Useful global constants.
+define( 'SAUCAL_API_VERSION', '1.0.0' );
 define( 'SAUCAL_API_URL', plugin_dir_url( __FILE__ ) );
 define( 'SAUCAL_API_PATH', dirname( __FILE__ ) . '/' );
 define( 'SAUCAL_API_INC', SAUCAL_API_PATH . 'includes/' );
@@ -29,3 +30,4 @@ require_once SAUCAL_API_INC . 'utils.php';
 require_once SAUCAL_API_INC . 'my-account-tab.php';
 require_once SAUCAL_API_INC . 'widget.php';
 require_once SAUCAL_API_INC . 'api.php';
+require_once SAUCAL_API_INC . 'frontend.php';

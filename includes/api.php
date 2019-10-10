@@ -40,8 +40,8 @@ class SauCalAPI_Controller extends \WP_REST_Controller {
 	 * @return WP_Error|bool
 	 */
 	public function permissions_check( $request ) {
-		// @TODO: validate if user is logged on.
-		return true;
+		// validate if user is logged on.
+		return is_user_logged_in();
 	}
 
 	/**
@@ -52,8 +52,7 @@ class SauCalAPI_Controller extends \WP_REST_Controller {
 	 */
 	public function external_api( $request ) {
 		// Get current user ID.
-		// @TODO: current user.
-		$user_id = '1';
+		$user_id = get_current_user_id();
 		$ids_raw = get_the_author_meta( 'saucal-ids', $user_id );
 
 		if ( ! empty( $ids_raw ) ) {

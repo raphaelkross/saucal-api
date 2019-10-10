@@ -33,7 +33,7 @@ class SauCalPI_Widget extends \WP_Widget {
 		echo $args['before_widget'];
 		?>
 
-		<div class="saucal-user-settings"><div class="loader"></div></div>
+		<div class="saucal-user-settings"><div class="loader"><?php esc_html_e( 'Loading Settings...', 'saucal-api' ); ?></div></div>
 
 		<?php
 		echo $args['after_widget'];

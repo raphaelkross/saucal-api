@@ -52,7 +52,7 @@ function add_tab_content() {
 		?>
 		<h3>SAU/CAL API</h3>
 
-		<div class="saucal-user-settings"><div class="loader"></div></div>
+		<div class="saucal-user-settings"><div class="loader"><?php esc_html_e( 'Loading Settings...', 'saucal-api' ); ?></div></div>
 
 		<form class="saucal-form" action="" method="post">
 			<?php wp_nonce_field( 'save_saucal_api', 'saucal_api_nonce' ); ?>
