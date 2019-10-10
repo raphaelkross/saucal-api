@@ -31,3 +31,12 @@ require_once SAUCAL_API_INC . 'my-account-tab.php';
 require_once SAUCAL_API_INC . 'widget.php';
 require_once SAUCAL_API_INC . 'api.php';
 require_once SAUCAL_API_INC . 'frontend.php';
+
+// Flush rules on activation.
+register_activation_hook(
+	__FILE__,
+	function() {
+		\SauCalAPI\MyAccountTab\add_endpoint();
+		flush_rewrite_rules();
+	}
+);
