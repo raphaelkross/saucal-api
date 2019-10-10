@@ -32,6 +32,24 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_custom_scripts' );
  * Include template at Front.
  */
 function include_template() {
-	require_once SAUCAL_API_PATH . 'templates/widget.php';
+	require_once get_file_path( 'templates', 'widget.php' );
 }
 add_action( 'wp_footer', __NAMESPACE__ . '\include_template', 2000 );
+
+/**
+ * Get File Path.
+ *
+ * @param string $folder   The folder name.
+ * @param string $filename The file name.
+ * @return string
+ */
+function get_file_path( $folder, $filename ) {
+	$theme_file_path = get_stylesheet_directory() . '/saucal-api/' . $folder . '/' . $filename;
+
+	// If file exists at theme, include it.
+	if ( file_exists( $theme_file_path ) ) {
+		return $theme_file_path;
+	} else {
+		return SAUCAL_API_PATH . $folder . '/widget.php';
+	}
+}

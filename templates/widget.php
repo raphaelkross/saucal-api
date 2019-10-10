@@ -2,7 +2,7 @@
 /**
  * Widget Output Template
  *
- * To overwrite this template, add the following file to your theme: /your-theme/saucal-api/widget.php.
+ * To overwrite this template, add the following file to your theme: /your-theme/templates/saucal-api/widget.php.
  * Reference: https://github.com/olado/doT
  *
  * @package SauCalAPI
