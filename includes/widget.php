@@ -19,7 +19,7 @@ class SauCalPI_Widget extends \WP_Widget {
 		parent::__construct(
 			'saucalapi_widget',
 			esc_html__( 'SAU/CAL API', 'saucal-api' ),
-			array( 'description' => esc_html__( 'SAU/CAL API Widget', 'saucal-api' ), ) // Args
+			array( 'description' => esc_html__( 'SAU/CAL API Widget', 'saucal-api' ) )
 		);
 	}
 
