@@ -1,0 +1,33 @@
+{
+	"name": "saucal/saucal-api",
+	"type": "wordpress-plugin",
+	"license": "EULA",
+	"description": "WordPress plugin showcasing external API connection.",
+	"homepage": "https://github.com/raphaelkross/saucal-api",
+	"authors": [
+		{
+			"name": "Rafael Angeline",
+			"email": "me@rafaelangeline.com"
+		}
+	],
+	"keywords": ["wordpress"],
+	"support": {
+		"issues": "https://github.com/raphaelkross/saucal-api/issues"
+	},
+	"require": {
+		"php": ">=5.4"
+	},
+	"require-dev": {
+    	"squizlabs/php_codesniffer": "3.*",
+    	"wp-coding-standards/wpcs": "2.1.1"
+	},
+	"scripts": {
+		"config-phpcs": [
+			"\"vendor/bin/phpcs\" --config-set installed_paths ../../../vendor/wp-coding-standards/wpcs",
+			"\"vendor/bin/phpcs\" --config-set default_standard WordPress"
+		],
+		"lint": "vendor/bin/phpcs",
+		"lint:skip-warnings": "vendor/bin/phpcs -n",
+		"lint:fix": "vendor/bin/phpcbf"
+	}
+}

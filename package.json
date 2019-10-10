@@ -1,0 +1,30 @@
+{
+	"name": "saucal-api",
+	"version": "1.0.0",
+	"description": "WordPress plugin showcasing external API connection.",
+	"main": "index.js",
+	"scripts": {
+		"test": "eslint assets --ext js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/raphaelkross/saucal-api.git"
+	},
+	"keywords": [
+		"wp"
+	],
+	"author": "Rafael Angeline",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/raphaelkross/saucal-api/issues"
+	},
+	"homepage": "https://github.com/raphaelkross/saucal-api#readme",
+	"dependencies": {},
+	"devDependencies": {
+		"eslint": "^4.19.1",
+		"eslint-config-wordpress": "^2.0.0",
+		"eslint-plugin-wordpress": "^0.1.0",
+		"prettier": "1.12.0",
+		"prettier-eslint": "^8.8.1"
+	}
+}
