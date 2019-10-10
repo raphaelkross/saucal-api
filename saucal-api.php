@@ -25,4 +25,5 @@ define( 'SAUCAL_API_PATH', dirname( __FILE__ ) . '/' );
 define( 'SAUCAL_API_INC', SAUCAL_API_PATH . 'includes/' );
 
 // Include files.
-// require_once SAUCAL_API_INC . 'my-account.php';
+require_once SAUCAL_API_INC . 'utils.php';
+require_once SAUCAL_API_INC . 'my-account-tab.php';
