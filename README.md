@@ -1,6 +1,6 @@
 ## SAU/CAL API Plugin
 
-This is a sample project filled with configuration files that will guarantee a much higher quality to any WP based project.
+This is a sample project with an external API endpoint example + integration with JS front-end.
 
 #### Installation
 
@@ -31,19 +31,3 @@ Recommended: install and configure an extension in your favorite editor.
 Reference: https://eslint.org/
 
 Recommended: install and configure an extension in your favorite editor.
-
-#### Tests / PHPUnit
-
-`phpunit.xml.dist` and `/tests` configures PHPUnit to unit tests.
-
-The structure was created by WP Cli's command `wp scaffold plugin-tests`.
-
-Reference: https://phpunit.de/
-
-#### Continuous Integration / TravisCI
-
-TravisCI is used to trigger tests against the code to ensure code that makes tests fail aren't merged.
-
-`.travis.yml` is the file that controls the build.
-
-Reference: https://travis-ci.org
