@@ -20,6 +20,7 @@ function enqueue_custom_scripts() {
 			'root'      => esc_url_raw( rest_url() ),
 			'nonce'     => wp_create_nonce( 'wp_rest' ),
 			'logged_in' => is_user_logged_in(),
+			'error'     => esc_html__( 'Request failed.', 'saucal-api' ),
 		)
 	);
 

@@ -16,10 +16,11 @@ jQuery( document ).ready( function() {
 				xhr.setRequestHeader( 'X-WP-Nonce', wpApiSettings.nonce );
 			},
 		} ).done( function ( data ) {
-			console.log(data);
 			// Display data in every wrapper we find.
 			widgets.html( JSON.stringify( data ) );
-		} );
+		} ).fail(function() {
+			widgets.html( wpApiSettings.error );
+		});
 	} else {
 		widgets.remove();
 	}
