@@ -48,7 +48,7 @@ function add_tab_content() {
 		do_action( 'saucal_api_before_form' );
 
 		// Get data to display at field.
-		$ids = get_the_author_meta( 'saucal-ids', get_current_user_id() );
+		$ids = get_user_meta( 'saucal-ids', get_current_user_id(), true );
 		?>
 		<h3>SAU/CAL API</h3>
 

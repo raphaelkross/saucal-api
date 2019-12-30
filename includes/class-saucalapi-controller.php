@@ -53,7 +53,7 @@ class SauCalAPI_Controller extends \WP_REST_Controller {
 	public function external_api( $request ) {
 		// Get current user ID.
 		$user_id = get_current_user_id();
-		$ids_raw = get_the_author_meta( 'saucal-ids', $user_id );
+		$ids_raw = get_user_meta( 'saucal-ids', $user_id, true );
 
 		if ( ! empty( $ids_raw ) ) {
 			// Build the array of IDs.
@@ -63,8 +63,10 @@ class SauCalAPI_Controller extends \WP_REST_Controller {
 			// Cache key.
 			$key = 'saucal_api_external_' . $user_id . '_' . $ids_raw;
 
+			$body = \get_transient( $key );
+
 			// Get any existing copy of our transient data.
-			if ( false === \get_transient( $key ) ) {
+			if ( false === $body ) {
 				// Make external request.
 				$response = wp_remote_get( 'https://httpbin.org/json' );
 
@@ -73,8 +75,6 @@ class SauCalAPI_Controller extends \WP_REST_Controller {
 				}
 
 				set_transient( $key, $body, 12 * HOUR_IN_SECONDS );
-			} else {
-				$body = \get_transient( $key );
 			}
 
 			return new \WP_REST_Response( $body, 200 );
