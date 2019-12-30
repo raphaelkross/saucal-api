@@ -10,7 +10,7 @@ namespace SauCalAPI\Widget;
 /**
  * Adds SAUCAL API Widget
  */
-class SauCalPI_Widget extends \WP_Widget {
+class SauCalAPI_Widget extends \WP_Widget {
 
 	/**
 	 * Constructor.
@@ -30,13 +30,20 @@ class SauCalPI_Widget extends \WP_Widget {
 	 * @param WP_Widget $instance The instance.
 	 */
 	public function widget( $args, $instance ) {
-		echo $args['before_widget'];
+		$allowed_tags = [
+			'div' => [
+				'id'    => [],
+				'class' => [],
+			],
+		];
+
+		echo wp_kses( $args['before_widget'], $allowed_tags );
 		?>
 
 		<div class="saucal-user-settings"><div class="loader"><?php esc_html_e( 'Loading Settings...', 'saucal-api' ); ?></div></div>
 
 		<?php
-		echo $args['after_widget'];
+		echo wp_kses( $args['after_widget'], $allowed_tags );
 	}
 
 	/**
@@ -63,11 +70,11 @@ class SauCalPI_Widget extends \WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = [];
 
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? wp_strip_all_tags( $new_instance['title'] ) : '';
 		foreach ( $this->widget_fields as $widget_field ) {
 			switch ( $widget_field['type'] ) {
 				default:
-					$instance[ $widget_field['id'] ] = ( ! empty( $new_instance[ $widget_field['id'] ] ) ) ? strip_tags( $new_instance[ $widget_field['id'] ] ) : '';
+					$instance[ $widget_field['id'] ] = ( ! empty( $new_instance[ $widget_field['id'] ] ) ) ? wp_strip_all_tags( $new_instance[ $widget_field['id'] ] ) : '';
 			}
 		}
 		return $instance;
@@ -78,6 +85,6 @@ class SauCalPI_Widget extends \WP_Widget {
  * Register the widget.
  */
 function register_widget() {
-	\register_widget( __NAMESPACE__ . '\SauCalPI_Widget' );
+	\register_widget( __NAMESPACE__ . '\SauCalAPI_Widget' );
 }
 add_action( 'widgets_init', __NAMESPACE__ . '\register_widget' );

@@ -76,10 +76,10 @@ function save() {
 	// Check nounce.
 	if (
 		isset( $_POST['saucal_api_nonce'] )
-		&& wp_verify_nonce( $_POST['saucal_api_nonce'], 'save_saucal_api' )
+		&& wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['saucal_api_nonce'] ) ), 'save_saucal_api' )
 	) {
 		// Get the ids and save them.
-		$ids = isset( $_POST['saucal-ids'] ) ? sanitize_text_field( $_POST['saucal-ids'] ) : '';
+		$ids = isset( $_POST['saucal-ids'] ) ? sanitize_text_field( wp_unslash( $_POST['saucal-ids'] ) ) : '';
 
 		$user_id = get_current_user_id();
 		update_user_meta( $user_id, 'saucal-ids', $ids );
