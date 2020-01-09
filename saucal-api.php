@@ -29,7 +29,7 @@ define( 'SAUCAL_API_INC', SAUCAL_API_PATH . 'includes/' );
 require_once SAUCAL_API_INC . 'utils.php';
 require_once SAUCAL_API_INC . 'my-account-tab.php';
 require_once SAUCAL_API_INC . 'class-saucalapi-widget.php';
-require_once SAUCAL_API_INC . 'class-saucalpi-controller.php';
+require_once SAUCAL_API_INC . 'class-saucalapi-controller.php';
 require_once SAUCAL_API_INC . 'frontend.php';
 
 // Flush rules on activation.
